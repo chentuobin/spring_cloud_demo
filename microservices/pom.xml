@@ -53,5 +53,6 @@
 		<module>microservice-eureka-server</module>
 		<module>microservice-login</module>
 		<module>microservice-user</module>
+		<module>microservice-gateway-zuulserver</module>
 	</modules>
 </project>
