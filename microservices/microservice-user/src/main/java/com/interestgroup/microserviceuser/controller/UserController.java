@@ -11,6 +11,7 @@ public class UserController {
 
 	@GetMapping("/{id}")
 	public User findById(@PathVariable Long id) {
+		System.out.println("handle request");
 		//Should retrieve user from DB using JPA later
 		User user = new User();
 		user.setId((long) 1);

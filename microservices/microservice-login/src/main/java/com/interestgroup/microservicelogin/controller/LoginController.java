@@ -1,6 +1,7 @@
 package com.interestgroup.microservicelogin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ public class LoginController {
 	private EurekaClient discoveryClient;
 	
     @Bean
+	@LoadBalanced
     RestTemplate restTemplate() {
        return new RestTemplate();
    }

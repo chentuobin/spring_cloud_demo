@@ -54,5 +54,7 @@
 		<module>microservice-login</module>
 		<module>microservice-user</module>
 		<module>microservice-gateway-zuulserver</module>
+		<module>microservice-compile</module>
+		<module>microservice-question</module>
 	</modules>
 </project>

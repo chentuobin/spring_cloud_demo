@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 0
 spring:
   application:
     name: microservice-user
@@ -16,3 +16,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     preferIpAddress: false
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
