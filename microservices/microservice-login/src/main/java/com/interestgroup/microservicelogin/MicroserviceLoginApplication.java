@@ -1,6 +1,6 @@
 package com.interestgroup.microservicelogin;
 
-import com.interestgroup.config.UserSerivceConfiguration;
+import com.interestgroup.config.UserServiceConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RibbonClient(name = "MICROSERVICE-USER", configuration = UserSerivceConfiguration.class)
+@RibbonClient(name = "MICROSERVICE-USER", configuration = UserServiceConfiguration.class)
 public class MicroserviceLoginApplication {
 	@Bean
 	@LoadBalanced
