@@ -1,0 +1,29 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: microservice-question
+  datasource:
+    url: jdbc:mysql://localhost:3306/bangbangmang
+    username: root
+    password: Tgbyujhmn1
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: false
+

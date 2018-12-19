@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/button.css"/>
+    <link rel="stylesheet" href="/css/layout.css"/>
+    <link rel="stylesheet" href="/editor.md-master/css/editormd.css"/>
+
+</head>
+<body>
+<!--<h1 th:text="${question.getQuestionTitle()}" />-->
+<form action="#myForm" th:action="@{/index}" method="post" th:object="${examinationPaper}">
+    <div class="center"><h1 th:text="${examinationPaper.getName()}"></h1></div>
+    <div th:each="section : ${examinationPaper.getSections()}">
+        <div class="margin"><h2 th:text="${section.getSequence()} + ') ' + ${section.getDescription()}"></h2></div>
+        <div th:each="question,questionStat : ${section.getQuestions()}">
+            <div class="margin"><b th:text="'('+ (${questionStat.index}+1) +') ' + ${question.getQuestionTitle()}"></b>
+            </div>
+            <div th:if=" ${question.isQuestionCodeRelated()}" th:id="'questionDesception' + ${question.getId()}" name="questionDesception">
+                <textarea style="display:none;" th:text="${question.getQuestionDesception()}"></textarea>
+            </div>
+            <div class="margin" ><b th:text="${question.getAnswerTitle()}"/></div>
+            <div th:if=" ${question.getType()} eq '1'" th:each="questionOption : ${question.getOptions()}">
+                <div class="custom-control custom-radio margin">
+                    <input type="radio" class="custom-control-input " id="defaultUnchecked" name="defaultExampleRadios">
+                    <label class="custom-control-label" for="defaultUnchecked"
+                           th:text="${questionOption.getOptionValue()} + '. ' + ${questionOption.getOptionMessage()}"
+                           th:value="${questionOption.getOptionValue()}"></label>
+                </div>
+            </div>
+            <div th:if=" ${question.getType()} eq '2'">
+                <div th:id="'code' + ${question.getId()}" name="code">
+                    <textarea style="display:none;"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--<button type='button' id="back" class="back">上一题</button>-->
+    <!--<button type='button' id="next" class="button">下一题</button>-->
+
+    <script src="/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/getrequest.js"></script>
+    <script src="/codemirror-5.42.0/mode/clike/clike.js"></script>
+    <script src="/editor.md-master/editormd.js"></script>
+</body>
+</html>

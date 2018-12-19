@@ -56,5 +56,6 @@
 		<module>microservice-gateway-zuulserver</module>
 		<module>microservice-compile</module>
 		<module>microservice-question</module>
+		<module>microservice-examination-paper</module>
 	</modules>
 </project>
