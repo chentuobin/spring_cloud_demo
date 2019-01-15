@@ -3,6 +3,7 @@ package com.interestgroup.microservicelogin;
 import com.interestgroup.config.UserServiceConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableCircuitBreaker
 @RibbonClient(name = "MICROSERVICE-USER", configuration = UserServiceConfiguration.class)
 public class MicroserviceLoginApplication {
 	@Bean
